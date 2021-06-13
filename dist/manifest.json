@@ -1,0 +1,7 @@
+{
+  "main.js": "/main.bundle.js",
+  "runtime~main.js": "/runtime~main.bundle.js",
+  "7.bundle.js": "/7.bundle.js",
+  "index.html": "/index.html",
+  "demo.css": "/demo.css"
+}
