@@ -19,18 +19,15 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
 );
 
 const getRandom = () => {
-  const operation = random(1, 2, false) % 2 === 0 ? '+' : '-';
+  const operation = 'x';
 
-  const num1 = random(1, 99, false);
+  const num1 = random(10, 99, false);
   let num2 = 0;
   let result = 0;
 
-  if (operation === '+') {
-    num2 = random(1, 99 - num1, false);
-    result = num1 + num2;
-  } else {
-    num2 = random(1, num1 - 1, false);
-    result = num1 - num2;
+  if (operation === 'x') {
+    num2 = random(2, 9, false);
+    result = num1 * num2;
   }
 
   return [`${padStart(num1.toString(), 2, ' ')} ${operation} ${padStart(num2.toString(), 2, ' ')} = `, result];
