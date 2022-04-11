@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import { createStyles, makeStyles, Theme } from '@mui/material';
 import PlusMinus from './PlusMinus';
 
 const useStyles = makeStyles(({ palette }: Theme) =>

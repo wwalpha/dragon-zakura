@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { State } from '@domains';
-import { Box, Button, createStyles, makeStyles, Theme, useMediaQuery } from '@material-ui/core';
+import { Box, Button, makeStyles, createStyles, Theme, useMediaQuery } from '@mui/material';
 import random from 'lodash/random';
 import padStart from 'lodash/padStart';
 
@@ -34,6 +34,7 @@ const getRandom = () => {
 };
 
 const PlusMinus: FunctionComponent<any> = () => {
+  // @ts-ignore
   const classes = useStyles();
   const [dataRows, setDataRows] = useState([] as any[]);
   const [answers, setAnswers] = useState([] as string[]);
