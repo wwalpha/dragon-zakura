@@ -1,7 +1,7 @@
-import { Theme, createMuiTheme } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
 import { orange } from '@mui/material/colors';
 
-const theme: Theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       dark: '#003c8f',
