@@ -37,4 +37,4 @@ jobs:
         run: |
           yarn install
           yarn build
-          aws s3 cp dist/* s3://$BUCKET_NAME_ARCHIVE/ --recursive
+          aws s3 cp dist/* s3://$BUCKET_NAME/ --recursive
