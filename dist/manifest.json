@@ -1,7 +1,7 @@
 {
   "main.js": "/main.bundle.js",
   "runtime~main.js": "/runtime~main.bundle.js",
-  "7.bundle.js": "/7.bundle.js",
+  "vendors-node_modules_mui_material_node_index_js-node_modules_mui_styles_node_index_js-node_mo-e599c7.bundle.js": "/vendors-node_modules_mui_material_node_index_js-node_modules_mui_styles_node_index_js-node_mo-e599c7.bundle.js",
   "index.html": "/index.html",
   "demo.css": "/demo.css"
 }
