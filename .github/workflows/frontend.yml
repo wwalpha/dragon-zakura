@@ -9,6 +9,7 @@ on:
 env:
   AWS_DEFAULT_REGION: us-east-1
   BUCKET_NAME: dragon-zakura-0613
+  NODE_ENV: production
 
 jobs:
   Update:
@@ -36,6 +37,6 @@ jobs:
       # Install and Build
       - name: Build
         run: |
-          yarn install
+          yarn install --production=false
           yarn build
           aws s3 cp dist s3://$BUCKET_NAME/ --recursive
