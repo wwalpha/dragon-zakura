@@ -9,7 +9,7 @@ const prod: Configuration = {
   mode: 'production',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'production',
+      title: 'ドラゴン桜',
       filename: 'index.html',
       template: path.join(__dirname, '../ejs/app.ejs'),
       minify: false,
