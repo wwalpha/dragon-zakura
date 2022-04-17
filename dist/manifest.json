@@ -1,7 +1,7 @@
 {
   "main.js": "/main.bundle.js",
   "runtime~main.js": "/runtime~main.bundle.js",
-  "982.bundle.js": "/982.bundle.js",
+  "vendors-node_modules_mui_material_node_index_js-node_modules_pmmmwh_react-refresh-webpack-plu-c79714.bundle.js": "/vendors-node_modules_mui_material_node_index_js-node_modules_pmmmwh_react-refresh-webpack-plu-c79714.bundle.js",
   "index.html": "/index.html",
   "demo.css": "/demo.css"
 }
