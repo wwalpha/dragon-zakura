@@ -1,8 +1,6 @@
 import * as path from 'path';
 import { Configuration, LoaderOptionsPlugin } from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import Dotenv from 'dotenv-webpack';
 
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
@@ -18,7 +16,6 @@ const configs: Configuration = {
   resolve: {
     mainFields: ['browser', 'main', 'module'],
     extensions: ['.ts', '.tsx', '.js'],
-    plugins: [new TsconfigPathsPlugin()],
   },
   module: {
     rules: [
@@ -46,7 +43,6 @@ const configs: Configuration = {
     new WebpackManifestPlugin({
       writeToFileEmit: true,
     }),
-    new Dotenv(),
     new LoaderOptionsPlugin({
       debug: false,
     }),
