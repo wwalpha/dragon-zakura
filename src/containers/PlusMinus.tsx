@@ -1,15 +1,11 @@
 import React, { FunctionComponent, useState } from 'react';
-import { State } from '@domains';
-import { Box, Button, Theme, useMediaQuery } from '@mui/material';
-import { makeStyles, createStyles } from '@mui/styles';
+import { Box, Button, useMediaQuery } from '@mui/material';
 import random from 'lodash/random';
 import padStart from 'lodash/padStart';
 
-const app = (state: State) => state.app;
-
 interface Props {
   operation: string;
-  col:number;
+  col: number;
 }
 
 const styles = {
@@ -22,31 +18,27 @@ const styles = {
   icon: { margin: 0 },
 };
 
-const getRandom =(operation: string) => {
-
+const getRandom = (operation: string) => {
   const num1 = random(10, 99, false);
   let num2 = 0;
   let result = 0;
-  let ans='';
+  let ans = '';
 
-  operation=operation===''?'+':operation;
+  operation = operation === '' ? '+' : operation;
 
   if (operation === 'x') {
     num2 = random(2, 9, false);
     result = num1 * num2;
-    ans=result.toString();
-  }
-  else if (operation === '÷') {
+    ans = result.toString();
+  } else if (operation === '÷') {
     num2 = random(2, 9, false);
     result = num1 / num2;
-    ans= Math.floor(num1 / num2).toString()+((num1 % num2)==0?"":'...'+(num1 % num2).toString())
-  }
-  else if (operation === '+') {
+    ans = Math.floor(num1 / num2).toString() + (num1 % num2 == 0 ? '' : '...' + (num1 % num2).toString());
+  } else if (operation === '+') {
     num2 = random(10, 99, false);
     result = num1 + num2;
-    ans=result.toString();
+    ans = result.toString();
   }
-  
 
   // return [`${padStart(num1.toString(), 2, ' ')} ${operation} ${padStart(num2.toString(), 2, ' ')} = ${ans}`, ans];
   return [`${padStart(num1.toString(), 2, ' ')} ${operation} ${padStart(num2.toString(), 2, ' ')} = `, ans];
@@ -61,46 +53,44 @@ const PlusMinus: FunctionComponent<any> = () => {
   // const setDataValue = (props:{operation: string,col:number}) => {
   const setDataValue = (props: Props) => {
     const datas = [];
-    const tmpAnswers=[];
-    
-  // // propsから値取り出し
-  // const { operation, col } = props;
-console.log()
+    const tmpAnswers = [];
+
+    // // propsから値取り出し
+    // const { operation, col } = props;
+    console.log();
     for (let i = 0; i < 25; i += 1) {
       datas.push(
         <Box key={`row${i}`} display="flex" p={1} marginLeft="48px" marginRight="48px" justifyContent="center">
           {/* <Box key={`column1_${i}`} width={operation==='÷'?"50%":"25%"}> */}
-          <Box key={`column1_${i}`} width={(props.col===2)?"50%":"25%"}>
+          <Box key={`column1_${i}`} width={props.col === 2 ? '50%' : '25%'}>
             {(() => {
               const v = getRandom(props.operation);
               tmpAnswers.push(`${i + 1}) ${v[1]}`);
               return `${i + 1}) ${v[0]}`;
             })()}
           </Box>
-          <Box key={`column2_${i}`} width={(props.col===2)?"50%":"25%"}>
+          <Box key={`column2_${i}`} width={props.col === 2 ? '50%' : '25%'}>
             {(() => {
               const v = getRandom(props.operation);
               tmpAnswers.push(`${i + 26}) ${v[1]}`);
               return `${i + 26}) ${v[0]}`;
             })()}
           </Box>
-           <Box key={`column3_${i}`} width={(props.col===2)?"1%":"25%"}>
+          <Box key={`column3_${i}`} width={props.col === 2 ? '1%' : '25%'}>
             {(() => {
-              if (props.col>=3)
-              {
+              if (props.col >= 3) {
                 const v = getRandom(props.operation);
                 tmpAnswers.push(`${i + 51}) ${v[1]}`);
                 return `${i + 51}) ${v[0]}`;
               }
             })()}
           </Box>
-          <Box key={`column4_${i}`} width={(props.col===2)?"1%":"25%"}>
+          <Box key={`column4_${i}`} width={props.col === 2 ? '1%' : '25%'}>
             {(() => {
-              if (props.col>=4)
-              {
+              if (props.col >= 4) {
                 const v = getRandom(props.operation);
-              tmpAnswers.push(`${i + 76}) ${v[1]}`);
-              return `${i + 76}) ${v[0]}`;
+                tmpAnswers.push(`${i + 76}) ${v[1]}`);
+                return `${i + 76}) ${v[0]}`;
               }
             })()}
           </Box>
@@ -109,29 +99,25 @@ console.log()
     }
 
     setDataRows(datas);
-    
+
     for (let i = 0; i < 25; i += 1) {
-      
-      if (props.col>=4)
-      {
-      tmpAnswers.splice(tmpAnswers.length - 1 - i * 2, 0, ...tmpAnswers.splice(1 + i, 1));
+      if (props.col >= 4) {
+        tmpAnswers.splice(tmpAnswers.length - 1 - i * 2, 0, ...tmpAnswers.splice(1 + i, 1));
       }
-      if (props.col>=3)
-      {
-      tmpAnswers.splice(tmpAnswers.length - 1 - i, 0, ...tmpAnswers.splice(1 + i, 1));
+      if (props.col >= 3) {
+        tmpAnswers.splice(tmpAnswers.length - 1 - i, 0, ...tmpAnswers.splice(1 + i, 1));
       }
       tmpAnswers.splice(tmpAnswers.length - 1, 0, ...tmpAnswers.splice(1 + i, 1));
     }
     setAnswers(tmpAnswers);
   };
 
-
   //かけ算50
   const handleGetMultiplyData50 = () => {
     setCmark('x');
     setDataValue({
       operation: 'x',
-      col:2,
+      col: 2,
     });
     handlePrint('_x50_');
   };
@@ -141,7 +127,7 @@ console.log()
     setCmark('x');
     setDataValue({
       operation: 'x',
-      col:4,
+      col: 4,
     });
     handlePrint('_x100_');
   };
@@ -149,10 +135,10 @@ console.log()
   // 割り算
   const handleGetDivideData = () => {
     setCmark('÷');
-    console.log('Divid cmark='+cmark);
+    console.log('Divid cmark=' + cmark);
     setDataValue({
       operation: '÷',
-      col:2,
+      col: 2,
     });
     handlePrint('÷');
   };
@@ -161,11 +147,11 @@ console.log()
     const a = window.document.createElement('a');
     a.href = window.URL.createObjectURL(new Blob([answers.join('\n')], { type: 'text/plain' }));
     // const yyyy =new Date().getFullYear()
-    const mo =new Date().getMonth() + 1;
-    const dd =new Date().getDate();
-    const hh =new Date().getHours();
-    const mm =new Date().getMinutes();
-    const ss =new Date().getSeconds();
+    const mo = new Date().getMonth() + 1;
+    const dd = new Date().getDate();
+    const hh = new Date().getHours();
+    const mm = new Date().getMinutes();
+    const ss = new Date().getSeconds();
 
     a.download = `answer_${opType}_${mo}${dd}${hh}${mm}${ss}.txt`;
 
@@ -179,11 +165,11 @@ console.log()
   const handlePrint2 = () => {
     const a = window.document.createElement('a');
     a.href = window.URL.createObjectURL(new Blob([answers.join('\n')], { type: 'text/plain' }));
-    const mo =new Date().getMonth() + 1;
-    const dd =new Date().getDate();
-    const hh =new Date().getHours();
-    const mm =new Date().getMinutes();
-    const ss =new Date().getSeconds();
+    const mo = new Date().getMonth() + 1;
+    const dd = new Date().getDate();
+    const hh = new Date().getHours();
+    const mm = new Date().getMinutes();
+    const ss = new Date().getSeconds();
 
     a.download = `answer_${mo}${dd}${hh}${mm}${ss}.txt`;
 
