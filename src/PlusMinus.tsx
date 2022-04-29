@@ -203,22 +203,24 @@ const PlusMinus: FunctionComponent<any> = () => {
         const results: any[] = [];
 
         for (let i = 0; i < 25 || 0; i += 1) {
+          const index = i * 4;
+
           results.push(
             <Box sx={{ display: 'flex', my: 1.8, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Box key={`column1_${i}`} sx={{ flexGrow: 1 }}>
-                <Box sx={{ pl: 2 }}>{`${padStart((i + 1).toString(), 2, '0')}) ${dataRows[i]}`}</Box>
+                <Box sx={{ pl: 2 }}>{`${padStart((i + 1).toString(), 2, '0')}) ${dataRows[index]}`}</Box>
               </Box>
               <Box key={`column1_${i + 1}`} sx={{ flexGrow: 1 }}>
-                <Box sx={{ pl: 2 }}>{`${i + 26}) ${dataRows[i + 1]}`}</Box>
+                <Box sx={{ pl: 2 }}>{`${i + 26}) ${dataRows[index + 1]}`}</Box>
               </Box>
               {settings.questions === 100 && (
                 <Box key={`column1_${i + 2}`} sx={{ flexGrow: 1 }}>
-                  <Box sx={{ pl: 2 }}>{`${i + 51}) ${dataRows[i + 2]}`}</Box>
+                  <Box sx={{ pl: 2 }}>{`${i + 51}) ${dataRows[index + 2]}`}</Box>
                 </Box>
               )}
               {settings.questions === 100 && (
                 <Box key={`column1_${i + 3}`} sx={{ flexGrow: 1 }}>
-                  <Box sx={{ pl: 2 }}>{`${i + 76}) ${dataRows[i + 3]}`}</Box>
+                  <Box sx={{ pl: 2 }}>{`${i + 76}) ${dataRows[index + 3]}`}</Box>
                 </Box>
               )}
             </Box>
