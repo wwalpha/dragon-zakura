@@ -201,25 +201,26 @@ const PlusMinus: FunctionComponent<any> = () => {
         if (dataRows.length === 0) return;
 
         const results: any[] = [];
+        const width = 25 / dataRows.length;
 
         for (let i = 0; i < 25 || 0; i += 1) {
-          const index = i * 4;
+          const index = (i * dataRows.length) / 25;
 
           results.push(
             <Box sx={{ display: 'flex', my: 1.8, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Box key={`column1_${i}`} sx={{ flexGrow: 1, minWidth: 25 / 100, maxWidth: 25 / 100 }}>
+              <Box key={`column1_${i}`} sx={{ flexGrow: 1, minWidth: width, maxWidth: width }}>
                 <Box sx={{ pl: 2 }}>{`${padStart((i + 1).toString(), 2, '0')}) ${dataRows[index]}`}</Box>
               </Box>
-              <Box key={`column1_${i + 1}`} sx={{ flexGrow: 1, minWidth: 25 / 100, maxWidth: 25 / 100 }}>
+              <Box key={`column1_${i + 1}`} sx={{ flexGrow: 1, minWidth: width, maxWidth: width }}>
                 <Box sx={{ pl: 2 }}>{`${i + 26}) ${dataRows[index + 1]}`}</Box>
               </Box>
               {settings.questions === 100 && (
-                <Box key={`column1_${i + 2}`} sx={{ flexGrow: 1, minWidth: 25 / 100, maxWidth: 25 / 100 }}>
+                <Box key={`column1_${i + 2}`} sx={{ flexGrow: 1, minWidth: width, maxWidth: width }}>
                   <Box sx={{ pl: 2 }}>{`${i + 51}) ${dataRows[index + 2]}`}</Box>
                 </Box>
               )}
               {settings.questions === 100 && (
-                <Box key={`column1_${i + 3}`} sx={{ flexGrow: 1, minWidth: 25 / 100, maxWidth: 25 / 100 }}>
+                <Box key={`column1_${i + 3}`} sx={{ flexGrow: 1, minWidth: width, maxWidth: width }}>
                   <Box sx={{ pl: 2 }}>{`${i + 76}) ${dataRows[index + 3]}`}</Box>
                 </Box>
               )}
