@@ -3,7 +3,7 @@ name: React Build
 on:
   push:
     paths:
-      - '*'
+      - '**'
       - .github/workflows/frontend.yml
 
 env:
